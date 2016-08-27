@@ -1,0 +1,66 @@
+.jumbotron {
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.navbar {
+  /*border: 1px solid black;*/
+  height: 20px;
+  padding-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  /*font-family: spaceranger;*/
+  font-size: 20px;
+  /*background-color: black;*/
+
+  text-align: center;
+}
+
+.navButton {
+  display: inline-block;
+  text-align: center;
+  margin-left: 5px;
+  /*border: 1px solid black;*/
+}
+
+.subjectContainer {
+  margin: 0px -200px 0 -200px;
+  padding: 50px 200px 10px 200px;
+
+  text-align: center;
+  /*border: 1px solid black;*/
+}
+
+.homeimage {
+  padding-bottom: 600px;
+  background-image: url("/styles/images/cats_dogs.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.buttonContainer {
+  /*border: 1px solid black;*/
+  text-align: center;
+  padding-right: 30px;
+}
+
+.getPetButton {
+  height: 50px;
+  padding-top: 5px
+  margin-top: 10px;
+  margin-bottom: 0;
+  /*font-family: spaceranger;*/
+  /*font-size: 20px;*/
+  /*background-color: black;*/
+
+  /*text-align: center;*/
+
+}
+
+/*.container {
+  /*margin: 5px auto 5px auto;*/
+  /*padding: 50px 200px 10px 200px;*/
+  /*border: 1px solid black;
+
+  text-align: center;*/
+/*}*/
