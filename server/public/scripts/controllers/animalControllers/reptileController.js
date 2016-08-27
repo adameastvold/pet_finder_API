@@ -1,6 +1,6 @@
-myApp.controller("catController", ["$scope", '$http', function($scope, $http) {
-    console.log("cat controller working");
-    $scope.quote = "cats forever";
+myApp.controller("reptileController", ["$scope", '$http', function($scope, $http) {
+    console.log("reptile controller working");
+    $scope.quote = "reptiles rule!";
 
     var key = 'd8407e0642d9c9aeac96a6ce132aa656';
     var baseURL = 'http://api.petfinder.com/';
@@ -9,7 +9,7 @@ myApp.controller("catController", ["$scope", '$http', function($scope, $http) {
     $scope.getRandomPet = function() {
         var query = 'pet.getRandom';
         query += '?key=' + key;
-        query += '&animal=cat';
+        query += '&animal=reptile';
         query += '&output=basic';
         query += '&format=json';
 
@@ -23,9 +23,25 @@ myApp.controller("catController", ["$scope", '$http', function($scope, $http) {
                 $scope.animal = response.data.petfinder.pet;
                 // $scope.breed = $scope.animal.animal.$t;
                 // $scope.getBreeds();
-            }
-        )
-    }
+            });
+    };
+
+    $scope.favoritePet = function(animalName, animalDescription, animalPhoto) {
+
+        var animal = {
+            name: animalName,
+            description: animalDescription.substring(0, 101),
+            photo: animalPhoto
+        };
+        console.log("this is your animal your animal object:", animal);
+
+        $http.post('/postAnimal', animal)
+        .then(function(response) {
+        console.log("post success response: ", response);
+
+      });
+
+    };
 }]);
 
 

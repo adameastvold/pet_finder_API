@@ -1,7 +1,26 @@
 <div class="navbar">
   <div class="navButton"><a href="#home"> Home </a></div>
-        <div class="navButton btn btn-sm"><a href="#cats">Cats</a></div>
-        <div class="navButton btn btn-sm"><a href="#dogs">Dogs</a></div>
+        <!-- <div class="navButton btn btn-sm"><a href="#cats">Cats</a></div>
+        <div class="navButton btn btn-sm"><a href="#dogs">Dogs</a></div> -->
+
+        <!-- <div class="container"> -->
+
+          <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Choose Animal<span class="caret"></span></button>
+            <div id="myDropdown" class="dropdown-content">
+              <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+              <a href="#dogs">Dogs</a>
+              <a href="#cats">Cats</a>
+              <a href="#birds">Birds</a>
+              <a href="#reptiles">Reptiles</a>
+              <a href="#horses">Horses</a>
+              <a href="#pigs">Pigs</a>
+              <a href="#barnyard">Barnyard</a>
+              <a href="#smallfurry">Small & Furry</a>
+            </div>
+          </div>
+
+          <div class="navButton"><a href="#favorites">Favorites<span id="favCount">(  )</span></a></div>
 </div>
 
 <!-- <li class="navButton" -->

@@ -23,10 +23,25 @@ myApp.controller("dogController", ["$scope", '$http', function($scope, $http) {
                 $scope.animal = response.data.petfinder.pet;
                 $scope.breed = $scope.animal.animal.$t;
                 // $scope.getBreeds();
-            }
-        )
-    }
+            });
+    };
 
+    $scope.favoritePet = function(animalName, animalDescription, animalPhoto) {
+
+        var animal = {
+            name: animalName,
+            description: animalDescription.substring(0, 101),
+            photo: animalPhoto
+        };
+        console.log("this is your animal your animal object:", animal);
+
+        $http.post('/postAnimal', animal)
+        .then(function(response) {
+        console.log("post success response: ", response);
+
+      });
+
+    };
 
 }]);
 

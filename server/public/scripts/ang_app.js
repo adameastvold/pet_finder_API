@@ -1,23 +1,73 @@
 var myApp = angular.module('myApp', ["ngRoute"]);
 
 
+// ===========DROP DOWN BUTTON & SEARCH============
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+//==================================================
+
+
 myApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider.
     when("/home", {
-        templateUrl: "/views/partials/home.html"
+        templateUrl: "/views/partials/home.html",
     }).
     when("/cats", {
-        templateUrl: "/views/partials/cats.html",
+        templateUrl: "/views/partials/animals/cats.html",
         controller: "catController"
     }).
     when("/dogs", {
-            templateUrl: "/views/partials/dogs.html",
-            controller: "dogController"
-        }).
-        // when("/fish", {
-        //     templateUrl: "/views/partials/fish.html",
-        //     controller: "fishController"
-        // }).
+        templateUrl: "/views/partials/animals/dogs.html",
+        controller: "dogController"
+    }).
+    when("/birds", {
+        templateUrl: "/views/partials/animals/birds.html",
+        controller: "birdController"
+    }).
+    when("/horses", {
+        templateUrl: "/views/partials/animals/horses.html",
+        controller: "horseController"
+    }).
+    when("/pigs", {
+        templateUrl: "/views/partials/animals/pigs.html",
+        controller: "pigController"
+    }).
+    when("/reptiles", {
+        templateUrl: "/views/partials/animals/reptiles.html",
+        controller: "reptileController"
+    }).
+    when("/barnyard", {
+        templateUrl: "/views/partials/animals/barnyard.html",
+        controller: "barnyardController"
+    }).
+    when("/smallfurry", {
+        templateUrl: "/views/partials/animals/smallfurry.html",
+        controller: "smallfurryController"
+    }).
+    when("/favorites", {
+      templateUrl: "/views/partials/favorites.html",
+      controller: "favoritesController"
+    }).
+    // when("/fish", {
+    //     templateUrl: "/views/partials/fish.html",
+    //     controller: "fishController"
+    // }).
     otherwise({
         redirectTo: "/home"
     });
