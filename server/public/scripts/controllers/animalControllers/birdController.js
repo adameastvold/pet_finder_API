@@ -27,12 +27,13 @@ myApp.controller("birdController", ["$scope", '$http', function($scope, $http) {
         )
     }
 
-    $scope.favoritePet = function(animalName, animalDescription, animalPhoto) {
+    $scope.favoritePet = function(animalName, animalDescription, animalPhoto, animalID) {
 
         var animal = {
             name: animalName,
             description: animalDescription.substring(0, 101),
-            photo: animalPhoto
+            photo: animalPhoto,
+            pet_id: animalID
         };
         console.log("this is your animal your animal object:", animal);
 
@@ -43,7 +44,25 @@ myApp.controller("birdController", ["$scope", '$http', function($scope, $http) {
       });
 
     };
+
+
+
+    $scope.favCount = "";
+
+    $scope.petFavCount = function(){
+
+    $http.get('/getFavCount').then(function(response) {
+    $scope.favCount = response.data;
+    console.log($scope.favCount)
+
+
+
+  })};
+
+  angular.element(document).ready($scope.petFavCount);
+
 }]);
+
 
 
 // myApp.controller('APIController', ['$scope', '$http', function($scope, $http) {

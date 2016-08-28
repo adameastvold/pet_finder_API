@@ -1,5 +1,5 @@
 myApp.controller("navController", ["$scope", '$http', function($scope, $http) {
-
+  console.log('nav controller up and running');
 
 
 }]);

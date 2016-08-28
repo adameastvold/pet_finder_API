@@ -4,13 +4,13 @@ var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/Pet_Center';
 
 router.get('/', function(req, res) {
-  pg.connect(connection, function(err, client, done) {
+  pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log(err);
       res.sendStatus(500);
     }
 
-    client.query("SELECT COUNT FROM tasks ORDER BY completed_date DESC",
+    client.query("SELECT COUNT(id) FROM favorites",
       function(err, result) {
         done();
 
