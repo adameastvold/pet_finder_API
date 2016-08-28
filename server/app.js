@@ -6,12 +6,14 @@ var path = require('path');
 var postAnimal = require("./routes/postAnimal.js");
 var getAnimal = require("./routes/getAnimal.js");
 var getCount = require("./routes/getFavCount.js");
+var deletePet = require("./routes/deletePet.js");
 
 app.use(bodyParser.json());
 
 app.use('/postAnimal', postAnimal);
 app.use('/getAnimal', getAnimal);
 app.use('/getFavCount', getCount);
+app.use('/deletePet', deletePet);
 
 
 // Serve back static files

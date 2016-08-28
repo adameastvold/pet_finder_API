@@ -1,7 +1,8 @@
-
-<ul ng-repeat="pet in favPets">
-  <li>{{pet.pet_id}}</li>
-  <img src="{{pet.image}}" alt="Animal Picture" />
-  <li>{{pet.name}}</li>
-  <li>{{pet.description}}</li>
-</ul>
+<div id="favCounter">You have {{favCount[0].count}} favorited animals!</div>
+<div class="favPetBox" ng-repeat="pet in favPets">
+  <div id="petID">Pet ID: {{pet.pet_id}}</div>
+  <div id="petImg"><img src="{{pet.image}}" alt="Animal Picture" width="300px" height="200px" /></div>
+  <div id="petName">{{pet.name}}</div>
+  <div id="petDescription">{{pet.description}}</div>
+  <button id="delete" ng-click="deletePet(pet.pet_id)">X</button>
+</div>
