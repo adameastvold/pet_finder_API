@@ -121,8 +121,22 @@
   top: 20px;
 }
 
-/*============ DROP DOWN BUTTON ================*/
+#typeFilter {
+  /*border: 1px solid black;*/
+  display: inline-block;
+  position: relative;
+  top: 20px;
+}
 
+/*============ DROP DOWN BUTTON ================*/
+#lableForDropdown {
+  display: inline-block;
+  /*border: 1px solid black;*/
+  position: relative;
+  margin-left: -180px;
+  top: -30px;
+  left: 193px;px;
+}
 
 .dropdown {
     position: relative;

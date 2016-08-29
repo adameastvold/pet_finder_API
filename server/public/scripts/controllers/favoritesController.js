@@ -2,16 +2,26 @@ myApp.controller("favoritesController", ["$scope", '$http', function($scope, $ht
   console.log("favorite controller working");
 
 
-
-
     $scope.favPets = [];
 
     $scope.getFavorites = function(){
+        $http.get('/getAnimal').then(function(response) {
+        $scope.favPets = response.data;
+    console.log('these are your pets sent to the fav page', $scope.favPets);
 
-    $http.get('/getAnimal').then(function(response) {
-    $scope.favPets = response.data;
+      //  Below was my attempt to begin the filtering function on the favorites page
+      //
+      // var tempArray = $scope.favPets;
+      // var veryTempArray = [];
+      //
+      // tempArray.forEach(){
+      //   if (favPets.pet_type == dogs){
+      //     $scope.getFavorites
+      //   }
+      // }
 
     })};
+
 
     angular.element(document).ready($scope.getFavorites);
 
