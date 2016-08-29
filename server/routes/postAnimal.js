@@ -13,8 +13,8 @@ router.post('/', function(req, res) {
       console.log('error in POST, pg.connect', err, "\n \n \n \n ");
     };
 
-    var queryString = 'INSERT INTO favorites (name, description, image, pet_id) VALUES ($1, $2, $3, $4)'
-    var referenceValues = [animal.name, animal.description, animal.photo, animal.pet_id];
+    var queryString = 'INSERT INTO favorites (name, description, image, pet_id, pet_type) VALUES ($1, $2, $3, $4, $5)'
+    var referenceValues = [animal.name, animal.description, animal.photo, animal.pet_id, animal.pet_type];
 
     console.log(animal, animal);
 

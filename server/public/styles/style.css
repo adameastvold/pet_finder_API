@@ -115,6 +115,12 @@
   top: -280px;
 }
 
+#petTypeSelector {
+  margin-bottom: -10px;
+  position: relative;
+  top: 20px;
+}
+
 /*============ DROP DOWN BUTTON ================*/
 
 

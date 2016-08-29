@@ -10,6 +10,7 @@ var deletePet = require("./routes/deletePet.js");
 
 app.use(bodyParser.json());
 
+// Routes
 app.use('/postAnimal', postAnimal);
 app.use('/getAnimal', getAnimal);
 app.use('/getFavCount', getCount);

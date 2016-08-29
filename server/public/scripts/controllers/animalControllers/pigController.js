@@ -30,7 +30,8 @@ myApp.controller("pigController", ["$scope", '$http', function($scope, $http) {
             name: animalName,
             description: animalDescription.substring(0, 101),
             photo: animalPhoto,
-            pet_id: animalID
+            pet_id: animalID,
+            pet_type: 'Pig'
         };
         console.log("this is your animal your animal object:", animal);
 

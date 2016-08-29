@@ -29,7 +29,8 @@ myApp.controller("smallfurryController", ["$scope", '$http', function($scope, $h
             name: animalName,
             description: animalDescription.substring(0, 101),
             photo: animalPhoto,
-            pet_id: animalID
+            pet_id: animalID,
+            pet_type: 'Small & Furry'
         };
         console.log("this is your animal your animal object:", animal);
 
