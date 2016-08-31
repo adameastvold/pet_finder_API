@@ -20,7 +20,6 @@ myApp.controller("dogController", ["$scope", '$http', function($scope, $http) {
             function(response) {
                 console.log(response.data);
                 $scope.animal = response.data.petfinder.pet;
-                $scope.breed = $scope.animal.animal.$t;
             });
     };
 
