@@ -1,44 +1,33 @@
-myApp.controller("favoritesController", ["$scope", '$http', function($scope, $http) {
+myApp.controller("favoritesController", ["$scope", '$http', 'animalFactory', function($scope, $http, animalFactory) {
   console.log("favorite controller working");
 
 
     $scope.favPets = [];
 
-    $scope.getFavorites = function(){
-        $http.get('/getAnimal').then(function(response) {
-        $scope.favPets = response.data;
-    console.log('these are your pets sent to the fav page', $scope.favPets);
 
-      //  Below was my attempt to begin the filtering function on the favorites page
-      //
-      // var tempArray = $scope.favPets;
-      // var veryTempArray = [];
-      //
-      // tempArray.forEach(){
-      //   if (favPets.pet_type == dogs){
-      //     $scope.getFavorites
-      //   }
-      // }
+    $scope.getFavorites = function() {
+      animalFactory.getFavorites().then(function(response){
+        console.log('these are your pets sent to the fav controller', response);
+        $scope.favPets = response;
+      });
 
-    })};
-
+    }
 
     angular.element(document).ready($scope.getFavorites);
 
-    $scope.favCount = "";
 
 
 
 
-    $scope.petFavCount = function(){
 
-    $http.get('/getFavCount').then(function(response) {
-    $scope.favCount = response.data;
-    console.log($scope.favCount);
+//=============FAV COUNT==============
 
-
-
-    })};
+    $scope.petFavCount = function() {
+      animalFactory.petFavCount().then(function(count) {
+        console.log("controllerCount: ", count);
+        $scope.favCount = count;
+      });
+    };
 
     angular.element(document).ready($scope.petFavCount);
 

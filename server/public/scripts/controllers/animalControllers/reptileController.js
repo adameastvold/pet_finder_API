@@ -1,46 +1,46 @@
-myApp.controller("reptileController", ["$scope", '$http', function($scope, $http) {
+myApp.controller("reptileController", ["$scope", '$http', 'animalFactory', function($scope, $http, animalFactory) {
     console.log("reptile controller working");
-    $scope.quote = "reptiles rule!";
 
-    var key = 'd8407e0642d9c9aeac96a6ce132aa656';
-    var baseURL = 'http://api.petfinder.com/';
+    $scope.animalFactory = animalFactory;
 
     $scope.getRandomPet = function() {
-        var query = 'pet.getRandom';
-        query += '?key=' + key;
-        query += '&animal=reptile';
-        query += '&output=basic';
-        query += '&format=json';
+      console.log('clicked');
+      if($scope.animalFactory.animal() === undefined) {
+        animalFactory.getRandomPet("reptile").then(function() {
+          $scope.animal = animalFactory.animal();
+          console.log("animal: ", animalFactory.animal());
+        });
+      } else {
+        animalFactory.getRandomPet("reptile").then(function() {
+          $scope.animal = animalFactory.animal();
+      })};
+    }
 
-        var request = baseURL + encodeURI(query) + '&callback=JSON_CALLBACK';
-
-        console.log(request);
-
-        $http.jsonp(request).then(
-            function(response) {
-                console.log(response.data);
-                $scope.animal = response.data.petfinder.pet;
-            });
-    };
 
     $scope.favoritePet = function(animalName, animalDescription, animalPhoto, animalID) {
-
-        var animal = {
-            name: animalName,
-            description: animalDescription.substring(0, 101),
-            photo: animalPhoto,
-            pet_id: animalID,
-            pet_type: 'Reptile'
-        };
-        console.log("this is your animal your animal object:", animal);
-
-        $http.post('/postAnimal', animal)
-        .then(function(response) {
-        console.log("post success response: ", response);
-
+      console.log('clicked favorite');
+      $scope.animalFactory.favoritePet(animalName, animalDescription, animalPhoto, animalID).then(function(response) {
+        $scope.favPets = $scope.animalFactory.getFavorites();
       });
+    }
+    // $scope.favoritePet = function(animalName, animalDescription, animalPhoto, animalID) {
+    //
+    //     var animal = {
+    //         name: animalName,
+    //         description: animalDescription.substring(0, 101),
+    //         photo: animalPhoto,
+    //         pet_id: animalID,
+    //         pet_type: 'Reptile'
+    //     };
+    //     console.log("this is your animal your animal object:", animal);
+    //
+    //     $http.post('/postAnimal', animal)
+    //     .then(function(response) {
+    //     console.log("post success response: ", response);
+    //
+    //   });
 
-    };
+    // };
 
     $scope.favCount = "";
 
