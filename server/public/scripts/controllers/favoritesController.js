@@ -16,10 +16,6 @@ myApp.controller("favoritesController", ["$scope", '$http', 'animalFactory', fun
     angular.element(document).ready($scope.getFavorites);
 
 
-
-
-
-
 //=============FAV COUNT==============
 
     $scope.petFavCount = function() {
