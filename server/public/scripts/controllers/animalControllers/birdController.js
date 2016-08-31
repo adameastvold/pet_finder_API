@@ -1,26 +1,33 @@
-myApp.controller("birdController", ["$scope", '$http', function($scope, $http) {
+myApp.controller("birdController", ["$scope", '$http', 'animalFactory', function($scope, $http, animalFactory) {
     console.log("bird controller working");
-    $scope.quote = "birds fly free";
 
-    var key = 'd8407e0642d9c9aeac96a6ce132aa656';
-    var baseURL = 'http://api.petfinder.com/';
+    $scope.animalFactory = animalFactory;
+
+    // if($scope.animalFactory.animal() === undefined) {
+    //   animalFactory.getRandomPet("bird").then(function() {
+    //     $scope.animal = animalFactory.animal();
+    //     console.log("animal: ", animalFactory.animal());
+    //   });
+    // };
+    //
+    //
+
+
+
+    // var key = 'd8407e0642d9c9aeac96a6ce132aa656';
+    // var baseURL = 'http://api.petfinder.com/';
 
     $scope.getRandomPet = function() {
-        var query = 'pet.getRandom';
-        query += '?key=' + key;
-        query += '&animal=bird';
-        query += '&output=basic';
-        query += '&format=json';
-
-        var request = baseURL + encodeURI(query) + '&callback=JSON_CALLBACK';
-
-        console.log(request);
-
-        $http.jsonp(request).then(
-            function(response) {
-                console.log(response.data);
-                $scope.animal = response.data.petfinder.pet;
-            });
+      console.log('clicked');
+      if($scope.animalFactory.animal() === undefined) {
+        animalFactory.getRandomPet("bird").then(function() {
+          $scope.animal = animalFactory.animal();
+          console.log("animal: ", animalFactory.animal());
+        });
+      } else {
+        animalFactory.getRandomPet("bird").then(function() {
+          $scope.animal = animalFactory.animal();
+      })};
     }
 
     $scope.favoritePet = function(animalName, animalDescription, animalPhoto, animalID) {
