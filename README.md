@@ -1,1 +1,1 @@
-
+The pet_finder_api was the first introduction to API's other than the ones we have created. It was a challenge to create an adopt a pet page to click a button to make requests from the API from petfinder.com.
